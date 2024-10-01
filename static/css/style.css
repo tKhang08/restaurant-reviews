@@ -1,0 +1,418 @@
+/* General Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #ede8e8;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #000000;
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+}
+
+/* Header */
+header {
+  background-color: #030303;
+  color: rgb(0, 0, 0);
+  padding: 20px 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* Thêm thuộc tính position */
+}
+
+.logo {
+  position: absolute; /* Đặt logo ở bên trái bằng cách sử dụng position */
+  left: 0;
+}
+
+.logo img {
+  height: 20x;
+  width: 80px; /* Đảm bảo logo là hình vuông để tạo hình tròn */
+  border-radius: 70%; /* Tạo hình tròn */
+  object-fit: cover; /* Đảm bảo hình ảnh vừa với khung tròn */
+  border: 2px solid #2fc4c2; /* Thêm đường viền nổi bật */
+  transition: transform 0.3s ease; /* Hiệu ứng hover */
+}
+
+.logo img:hover {
+  transform: scale(1.1); /* Phóng to logo khi hover */
+}
+
+header h1 {
+  font-size: 1.5rem;
+  color: rgb(246, 240, 240);
+  text-align: center;
+  flex-grow: 1;
+  margin: 0;
+}
+
+/* Restaurant List */
+.restaurant-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px 0;
+}
+
+.restaurant-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  width: 300px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-10px);
+}
+
+.restaurant-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.restaurant-card .info {
+  padding: 15px;
+  text-align: center;
+}
+
+.restaurant-card h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.restaurant-card p {
+  font-size: 1em;
+  color: #666;
+  margin: 5px 0;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.pagination a,
+.pagination span {
+  padding: 10px 15px;
+  margin: 0 3px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.pagination a:hover {
+  background-color: #e9ecef;
+  border-color: #007bff;
+}
+
+.pagination .active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.pagination .dots {
+  padding: 10px 15px;
+  color: #6c757d;
+}
+
+.pagination a,
+.pagination span {
+  min-width: 35px;
+  text-align: center;
+}
+
+.pagination a.disabled {
+  pointer-events: none;
+  color: #ccc;
+}
+
+.goto-page-form {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.goto-page-form label {
+  margin-right: 5px;
+}
+
+.goto-page-form input {
+  width: 50px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+.goto-page-form button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.goto-page-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Loại bỏ dấu gạch dưới cho các liên kết */
+a {
+  text-decoration: none;
+  color: inherit; /* Giữ nguyên màu chữ của phần tử chứa nó */
+}
+
+/* Đổi màu liên kết  */
+a:hover {
+  color: #2833d2;
+}
+
+/* Form tìm kiếm */
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+form input {
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+form button:hover {
+  background-color: #e64a19;
+}
+
+.suggestions-box {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  max-width: 300px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+.reviews {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.review-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.review-item p {
+  margin: 5px 0;
+}
+
+.fa-star {
+  font-size: 20px; /* Kích thước ngôi sao */
+  color: grey; /* Màu cho ngôi sao rỗng */
+}
+
+.checked {
+  color: orange; /* Màu cho ngôi sao đầy */
+}
+
+/* CSS cho trang chi tiết nhà hàng */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.restaurant-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-detail img {
+  max-width: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.info {
+  flex: 1;
+}
+
+.info h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.info p {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #0e0505;
+}
+
+.info p hehe {
+  color: #bd7500;
+  font-weight: bold;
+}
+
+.info p:last-child {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.rating {
+  font-size: 1.5rem;
+  color: #e80505;
+}
+
+.trend-prediction {
+  font-size: 1.3rem;
+  background-color: #e0f7fa;
+  padding: 10px;
+  border-radius: 5px;
+  color: #00796b;
+}
+
+.reviews {
+  margin-top: 30px;
+}
+
+.reviews h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.review-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 15px 0;
+  color: #666;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-item p {
+  margin-bottom: 5px;
+}
+
+.review-item .user {
+  font-weight: bold;
+  color: #333;
+}
+
+.review-item .comment {
+  margin-left: 10px;
+  color: #555;
+}
+
+.review-item .rating {
+  color: #980707;
+  font-weight: bold;
+}
+
+.info a {
+  font-size: 1.3rem; /* Kích thước chữ lớn hơn nhưng không quá to */
+  margin-bottom: 12px; /* Giữ khoảng cách hợp lý giữa các đoạn */
+  color: #333; /* Màu tối vừa, không quá gắt */
+  line-height: 1.8; /* Tăng khoảng cách dòng để dễ đọc hơn */
+  font-weight: 400; /* Độ đậm nhẹ nhàng */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Thêm hiệu ứng bóng chữ nhẹ */
+  letter-spacing: 0.3px; /* Khoảng cách giữa các chữ vừa phải */
+  border-left: 4px solid #ff5722; /* Tạo vạch màu ở bên trái */
+  padding-left: 15px; /* Tạo khoảng cách giữa văn bản và vạch màu */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Thêm hiệu ứng chuyển động nhẹ */
+}
+
+.info a:hover {
+  background-color: #f7f7f7; /* Đổi màu nền khi hover */
+  transform: scale(1.02); /* Phóng to nhẹ khi hover */
+}
+
+.good {
+  color: green; /* Màu xanh lá cho phản hồi tốt */
+}
+
+.bad {
+  color: red; /* Màu đỏ cho phản hồi xấu */
+}
+
+.trend-icon {
+  font-size: 1.2em; /* Kích thước biểu tượng */
+  margin-left: 5px; /* Khoảng cách giữa văn bản và biểu tượng */
+}
+
+.back-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.back-link a {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.back-link a:hover {
+  background-color: #0056b3;
+  text-decoration: underline;
+}

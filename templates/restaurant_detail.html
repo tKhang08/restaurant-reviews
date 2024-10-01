@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Chi tiết nhà hàng</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <a href="{{ url_for('index') }}">
+            <img
+              src="{{ url_for('static', filename='images/logo.jpg') }}"
+              alt="Logo"
+            />
+          </a>
+        </div>
+        <h1>{{ restaurant['restaurant_name'] }}</h1>
+      </div>
+    </header>
+
+    <div class="container restaurant-detail">
+      <img
+        src="{{ url_for('static', filename=restaurant['image_path']) }}"
+        alt="Restaurant Image"
+      />
+      <div class="info">
+        <h2>{{ restaurant['restaurant_name'] }}</h2>
+        <p>Địa chỉ: {{ restaurant['address'] }}</p>
+        <a>Đánh giá tổng quan: {{ restaurant['danh_gia'] }}</a>
+        <p>
+          Chất lượng phản hồi mới nhất: 
+          <strong class="{{ 'good' if trend_prediction == 'Tốt lên' else 'bad' }}">
+            {{ trend_prediction }}
+            <span class="trend-icon">{{ '⬈' if trend_prediction == 'Tốt lên' else '⬊' }}</span>
+          </strong>
+        </p>
+        
+        <p>
+          Điểm sao hiện tại: <hehe>{{ current_rating | round(1)}} ★</he>
+        </p>
+      </div>
+    </div>
+
+    <div class="reviews">
+      <h3>Đánh giá từ người dùng</h3>
+      {% if reviews %} {% for review in reviews %}
+      <div class="review-item">
+        <p><strong>Ngày đánh giá:</strong> {{ review['review_date'] }}</p>
+        <p><strong>Đánh giá:</strong> {{ review['review_text'] }}</p>
+        <p>
+          <strong>Đánh giá sao:</strong>
+          <!-- Hiển thị các ngôi sao dựa trên rating -->
+          {% for i in range(1, 6) %} {% if i <= review['rating'] %}
+          <span class="fa fa-star checked"></span>
+          <!-- Ngôi sao đầy -->
+          {% else %}
+          <span class="fa fa-star"></span>
+          <!-- Ngôi sao rỗng -->
+          {% endif %} {% endfor %}
+        </p>
+      </div>
+      {% endfor %} {% else %}
+      <p>Chưa có đánh giá nào.</p>
+      {% endif %}
+    </div>
+    <div class="back-link">
+      <a href="{{ url_for('index') }}">Quay lại danh sách nhà hàng</a>
+    </div>
+  </body>
+</html>
